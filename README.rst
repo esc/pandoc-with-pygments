@@ -42,12 +42,12 @@ with ``--filter ./pygments.hs -H``. The Pandoc call can be found in the
 So far so good.
 
 Now, unfortunately Beamer has a quirk, where you need the frame to be
-``[fragile]`` if it contains a Verbatim environment. Pandoc usually does this,
-it was fixed in https://github.com/jgm/pandoc/issues/385, BUT, the filter turns
-a ``CodeBlock`` into a ``RawBlock`` so that this does not work anymore. As a
-last resort, ``sed`` is used to insert the missing ``[fragile]`` documentwide.
-It isn't perfect, some beamer features cease to work, but in principle, the
-goal has been achieved.
+``[fragile]`` if it contains a ``Verbatim`` environment. Pandoc usually does
+this, it was fixed in https://github.com/jgm/pandoc/issues/385, BUT, the filter
+turns a ``CodeBlock`` into a ``RawBlock`` so that this does not work anymore.
+As a last resort, ``sed`` is used to insert the missing ``[fragile]``
+documentwide.  It isn't perfect, some beamer features cease to work, but in
+principle, the goal has been achieved.
 
 Author
 ------
