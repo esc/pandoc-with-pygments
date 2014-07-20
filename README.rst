@@ -13,7 +13,7 @@ reStructuredText (RST) sources. However, it's highlighting engine is currently
 console (not Python code) and ``console`` which is for  a shell session (not
 shell scrips). These are especially useful when writing documentation and they
 do exist in Pygments and are regularly used in Sphinx documents. So, now the
-goal is to use Pygments as a filter in pandoc to perform the highlighting.
+goal is to use Pygments as a filter in Pandoc to perform the highlighting.
 
 Usage
 -----
@@ -27,16 +27,16 @@ Usage
 Warts
 -----
 
-Unfortunately it isn't quite straightforward. The haskell filter works OK.
-However, we need to a) insert the pygments latex definitions specific for a
+Unfortunately it isn't quite straightforward. The Haskell filter works OK.
+However, we need to a) insert the Pygments latex definitions specific for a
 given style and b) adapt the beamer template to include LaTeX packages
 required and c) run the filter.
 
-The style definitions are in ``solarized-defs.tex`` and are added to the pandoc
+The style definitions are in ``solarized-defs.tex`` and are added to the Pandoc
 call using ``-H solarized-defs.tex``. The ``beamer_template.tex`` adds
 ``\usepackage{fancyvrb}`` and ``\usepackage{color}`` and is used with
 ``--template beamer_template.tex``. Lastly, the filter ``pygments.hs`` is run
-with ``--filter ./pygments.hs -H``. The pandoc call can be found in the
+with ``--filter ./pygments.hs -H``. The Pandoc call can be found in the
 ``compile.sh`` file.
 
 So far so good.
