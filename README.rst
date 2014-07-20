@@ -4,7 +4,7 @@ pandoc-with-pygments
 About
 -----
 
-Example on how to use the Pygments highlighter and it's style definitions from
+Example on how to use the Pygments highlighter and its style definitions from
 Pandoc.
 
 Pandoc is a great tool for making LaTeX Beamer presentations from
