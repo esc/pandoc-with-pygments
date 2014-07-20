@@ -21,7 +21,7 @@ Usage
 .. code-block:: console
 
    $ ./compile.sh
-   $ $PDFVIEWER slides-fragile.pdf
+   $ $PDFVIEWER slides.pdf
 
 
 Warts
