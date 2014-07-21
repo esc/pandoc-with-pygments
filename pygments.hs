@@ -1,3 +1,4 @@
+#!/usr/bin/env runhaskell
 -- A Pandoc filter to use Pygments for Pandoc
 -- Code blocks in HTML output
 -- Nickolay Kudasov 2013
