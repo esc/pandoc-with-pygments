@@ -8,19 +8,18 @@
  
 import Text.Pandoc.Definition
 import Text.Pandoc.JSON (toJSONFilter)
-import Text.Pandoc.Shared
-import Data.Char(toLower)
 import System.Process (readProcess)
-import System.IO.Unsafe
  
  
 main = toJSONFilter highlight
  
-highlight :: Block -> Block
-highlight (CodeBlock (_, options , _ ) code) = RawBlock (Format "latex") (pygments code options)
-highlight x = x
+highlight :: Block -> IO Block
+highlight (CodeBlock (_, options , _ ) code) = do
+  pygmentedCode <- pygments code options
+  return (RawBlock (Format "latex") pygmentedCode)
+highlight x = return x
  
-pygments:: String -> [String] -> String
+pygments:: String -> [String] -> IO String
 pygments code options
-         | (options !! 1 /= "") = unsafePerformIO $ readProcess "pygmentize" ["-l", (options !! 1), "-f", "latex"] code
-         | otherwise = "\\begin{Verbatim}\n" ++ code ++ "\n\\end{Verbatim}"
+         | (options !! 1 /= "") = readProcess "pygmentize" ["-l", (options !! 1), "-f", "latex"] code
+         | otherwise = return ("\\begin{Verbatim}\n" ++ code ++ "\n\\end{Verbatim}")
